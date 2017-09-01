@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    defaultConfig {
+        applicationId "com.yuntongxun.ecdemo"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 18
+        versionName "5.3.2r"
+        multiDexEnabled true
+
+        ndk {
+            abiFilters 'armeabi'
+        }
+
+        sourceSets {
+            main {
+                jniLibs.srcDirs = ['libs']
+                java.srcDirs = ['src/main/java']
+            }
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:26.0.1'
+    compile 'com.squareup.okhttp3:okhttp:3.8.0'
+    compile 'com.squareup.okio:okio:1.13.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.android.support:multidex:1.0.2'
+    compile('com.alibaba.android:vlayout:1.0.5@aar') {
+        transitive = true
+    }
+    compile 'com.jakewharton:butterknife:8.4.0'
+    compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    compile 'com.squareup.okhttp3:logging-interceptor:3.8.0'
+    compile 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile project(':BQMM_Lib')
+    compile project(':vitamio')
+    compile project(':redpacketlibrary')
+}

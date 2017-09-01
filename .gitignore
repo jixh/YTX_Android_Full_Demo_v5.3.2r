@@ -1,0 +1,12 @@
+*.iml
+.gradle
+.idea
+app/build
+BQMM_Lib/build
+/build
+redpacketlibrary/build
+vitamio/build
+.DS_Store
+/captures
+.externalNativeBuild
+/local.properties
